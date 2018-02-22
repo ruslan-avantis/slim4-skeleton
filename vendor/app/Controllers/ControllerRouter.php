@@ -31,7 +31,7 @@ class ControllerRouter
         $this->view = $view;
     }
 
-    public function get(Request $request, Response $response, array $args): array
+    public function get(Request $request, Response $response, array $args)
     {
         $host = $request->getUri()->getHost();
         $path = '';
@@ -98,8 +98,10 @@ class ControllerRouter
 
         // Render view
         $render = $data['render'] ?? 'index.phtml';
+		
+		$view = $this->view->render($render, $data);
 
-        return $this->view->render($render, $data);
+        return $view;
 
     }
 
@@ -143,12 +145,12 @@ class ControllerRouter
 
     }
     
-    public function put(Request $request, Response $response, array $args): array
+    public function put(Request $request, Response $response, array $args)
     {
 
     }
     
-    public function delete(Request $request, Response $response, array $args): array
+    public function delete(Request $request, Response $response, array $args)
     {
 
     }
