@@ -33,6 +33,33 @@ $app->get($route_home, function ($request, $response, $args)
     return $response->write($view->render($render, $data));
  
 });
+
+// $route_api = $config['routes']['api']['route'];
+$route_api = '/api/json[/[{resource:[\w]+}[/{id:[0-9]+}]]]';
+$app->get($route_api, function ($request, $response, $args)
+{
+    // Controllers Directory /vendor/app/Controllers/
+	// AutoRequire\Autoloader - Automatically registers a namespace in /vendor/app/
+
+    // $controller = $this->get('config')['vendor']['controllers']['router'];
+	// $route = ucfirst($request->getAttribute('route')) ?? 'Error';
+    // $controller = '\App\Controllers\Controller'.$route;
+ 
+    $controller = '\App\Controllers\ControllerRouter';
+	// $function = strtolower($request->getMethod());
+	// $function = $this->get('config')['function']['api'];
+    $function = 'runApi';
+
+    $class = new $controller($this->get('config'), $this->get('package'), $this->get('view'), $this->get('logger'));
+    $callback = $class->$function($request, $response, $args);
+
+	$callbackCode = $callback['code'] ?? 200;
+
+	return $response->withJson($callback, $callbackCode, JSON_PRETTY_PRINT);
+	// return $response->withJson($callback, $callbackCode);
+	// return $response->write($callback)->withStatus($callbackCode)->withHeader('Content-type', 'application/json');
+
+});
  
 /*
 $route_content = $config['routes']['api']['route'];
@@ -69,30 +96,5 @@ $app->get($route_content, function ($request, $response, $args)
     $class = new $controller($this->get('config'), $this->get('package'), $this->get('view'), $this->get('logger'));
     return $response->write($class->$function($request, $response, $args));
  
-});
- 
-// $route_api = $config['routes']['api']['route'];
-$route_api = '/api[/[{resource:[\w]+}[/{id:[0-9]+}]]]';
-$app->get($route_api, function ($request, $response, $args)
-{
-    // Controllers Directory /vendor/app/Controllers/
-	// AutoRequire\Autoloader - Automatically registers a namespace in /vendor/app/
-
-    // $controller = $this->get('config')['vendor']['controllers']['router'];
-	// $route = ucfirst($request->getAttribute('route')) ?? 'Error';
-    // $controller = '\App\Controllers\Controller'.$route;
- 
-    $controller = '\App\Controllers\ControllerRouter';
-    $function = 'runApi';
-
-    $class = new $controller($this->get('config'), $this->get('package'), $this->get('view'), $this->get('logger'));
-    $callback = $class->$function($request, $response, $args);
-
-	$callbackCode = $callback['code'] ?? 200;
-
-	return $response->withJson($callback, $callbackCode, JSON_PRETTY_PRINT);
-	// return $response->withJson($callback, $callbackCode);
-	// return $response->write($callback)->withStatus($callbackCode)->withHeader('Content-type', 'application/json');
-
 });
  
