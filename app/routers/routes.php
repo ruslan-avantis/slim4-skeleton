@@ -13,6 +13,7 @@
 // Routes
 // $route_home = $config['routes']['home']['route'];
 $route_home = '/';
+// URI https://example.com/
 $app->get($route_home, function ($request, $response, $args)
 {
     $view = $this->get('view'); 
@@ -35,7 +36,8 @@ $app->get($route_home, function ($request, $response, $args)
 });
 
 // $route_api = $config['routes']['api']['route'];
-$route_api = '/api/json[/[{resource:[\w]+}[/{id:[0-9]+}]]]';
+$route_api = '/api/json[/[{resource:[a-z0-9_-]+}[/{id:[0-9]+}]]]';
+// URI https://example.com/api/json/test-1/2018
 $app->get($route_api, function ($request, $response, $args)
 {
     // Controllers Directory /vendor/app/Controllers/
@@ -62,7 +64,7 @@ $app->get($route_api, function ($request, $response, $args)
 });
  
 /*
-$route_content = $config['routes']['api']['route'];
+$route_content = $config['routes']['content']['route'];
 or
 $route_content = '/{alias:[a-z0-9_]+}/[/{name:[a-z0-9_-]+}].html';
 or
@@ -71,6 +73,7 @@ or
 $route_content = '/{route:[a-z0-9_-]+}[/{resource:[\w]+}[/{id:[\w]+}]]';
 */
 $route_content = '/{route:[a-z0-9_-]+}[/[{resource:[\w]+}[/{id:[0-9]+}]]]';
+// URI https://example.com/site/test/2018
 $app->get($route_content, function ($request, $response, $args)
 {
     // $getScheme = $request->getUri()->getScheme();
