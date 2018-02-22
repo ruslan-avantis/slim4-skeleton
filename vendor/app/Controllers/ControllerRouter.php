@@ -55,7 +55,7 @@ class ControllerRouter
         // $getPath = $request->getUri()->getPath();
         // $getMethod = $request->getMethod();
 
-		$data = [];
+        $data = [];
 
         $h2 = $request->getAttribute('route') ?? '«Hello, world!»';
 
@@ -86,7 +86,7 @@ class ControllerRouter
                 "robots" => "index, follow",
                 "render" => "index.phtml"
             ];
-			$data['h3'] = $request->getAttribute('resource') ?? null;
+            $data['h3'] = $request->getAttribute('resource') ?? null;
             $data['id'] = $request->getAttribute('id') ?? null;
             
             if ((int)$cache->state() == 1) {
@@ -98,8 +98,8 @@ class ControllerRouter
 
         // Render view
         $render = $data['render'] ?? 'index.phtml';
-		
-		$view = $this->view->render($render, $data);
+        
+        $view = $this->view->render($render, $data);
 
         return $view;
 
@@ -107,9 +107,9 @@ class ControllerRouter
 
     public function runApi(Request $request, Response $response, array $args): array
     {
-		$function = strtolower($request->getMethod());
+        $function = strtolower($request->getMethod());
 
-		$callback = [];
+        $callback = [];
 
         // Models Directory /vendor/app/models/
         // AutoRequire\Autoloader - Automatically registers a namespace \App in /vendor/app/
@@ -117,7 +117,7 @@ class ControllerRouter
         $callback = $model->$function($request, $response, $args);
 
         // return json_encode($callback, JSON_PRETTY_PRINT);
-		return $callback;
+        return $callback;
 
     }
 
@@ -141,7 +141,7 @@ class ControllerRouter
         ];
 
         //return json_encode($callback, JSON_PRETTY_PRINT);
-		return $callback;
+        return $callback;
 
     }
     

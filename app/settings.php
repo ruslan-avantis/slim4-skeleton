@@ -16,7 +16,7 @@ class Settings
 {
 
     public static function get()
-	{
+    {
 
         $config = [];
         // settings.json
@@ -30,9 +30,9 @@ class Settings
             }
         }
 
-		$config["dir"]["www"] = __DIR__ .'/..';
-		$config["settings"]["json"] = $settings;
-		$config["settings"]["cache"] =  __DIR__ . "/../_cache/";
+        $config["dir"]["www"] = __DIR__ .'/..';
+        $config["settings"]["json"] = $settings;
+        $config["settings"]["cache"] =  __DIR__ . "/../_cache/";
 
         // Папка куда будут писатся логи Monolog
         $config["settings"]["logger"]["path"] = isset($_ENV['docker']) ? 'php://stdout' : __DIR__ . '/../logs/app.log';

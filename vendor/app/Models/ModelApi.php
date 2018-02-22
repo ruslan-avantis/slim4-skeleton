@@ -16,6 +16,7 @@ use Psr\Http\Message\{
     ServerRequestInterface as Request, 
     ResponseInterface as Response
 };
+use Pllano\Caching\Cache;
 
 class ModelApi
 {
@@ -34,24 +35,56 @@ class ModelApi
     public function get(Request $request, Response $response, array $args): array
     {
         $getParams = $request->getQueryParams();
-		$getMethod = $request->getMethod();
-		$resource = $request->getAttribute('resource') ?? '';
-		$id = $request->getAttribute('id') ?? '';
+        $getMethod = $request->getMethod();
+        $resource = $request->getAttribute('resource') ?? '';
+        $id = $request->getAttribute('id') ?? '';
 
-		// ....... Your code ....... //
+        $host = $request->getUri()->getHost();
+        $path = '';
+        if($request->getUri()->getPath() != '/') {
+            $path = $request->getUri()->getPath();
+        }
+        $params = '';
+        // getQuery
+        $params_query = str_replace('q=/', '', $request->getUri()->getQuery());
+        if ($params_query) {
+            $params = '/'.$params_query;
+        }
 
-		$responseCode = 200;
-		$callback = [
-            'responseCode' => $responseCode,
-            'resource' => $resource,
-            'id' => $id,
-			'getParams' => $getParams,
-			'getMethod' => $getMethod,
-			'config' => $this->config,
-			'package' => $this->package,
-        ];
+        $callback = [];
+        $lang = 'en';
+        
+        // ....... Your code ....... //
 
-		return $callback;
+        // Caching
+        $cache = new Cache($this->config);
+
+        if ($cache->run($host.''.$params.'/'.$lang) === null) {
+
+            $responseCode = 200;
+
+            // ....... Your code ....... //
+
+            $callback = [
+                'responseCode' => $responseCode,
+                'resource' => $resource,
+                'id' => $id,
+                'getParams' => $getParams,
+                'getMethod' => $getMethod,
+                'config' => $this->config,
+                'package' => $this->package,
+            ];
+            
+            $this->logger->info("ModelApi function get - responseCode: {$responseCode} - resource: {$resource}  - id: {$id}");
+
+            if ((int)$cache->state() == 1) {
+                $cache->set($callback);
+            }
+        } else {
+            $callback = $cache->get();
+        }
+ 
+        return $callback;
     }
 
 }

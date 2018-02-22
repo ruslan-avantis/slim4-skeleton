@@ -16,19 +16,19 @@ use Psr\Http\Message\{ServerRequestInterface as Request, ResponseInterface as Re
 
 class ModelStart
 {
-	
+    
     function __construct($config, $package, $logger)
     {
         $this->config = $config;
         $this->package = $package;
         $this->logger = $logger;
     }
-	
+    
     public function get(Request $request, Response $response, array $args)
     {
 
         $h2 = $request->getAttribute('route') ?? '«Hello, world!»';
-		$data = [
+        $data = [
                 "h1" => "Slim 4 Skeleton",
                 "h2" => "Slim + {$h2} + ModelStart",
                 "title" => "Slim 4 Skeleton",
@@ -37,7 +37,7 @@ class ModelStart
                 "render" => "index.phtml"
         ];
 
-		return $data;
+        return $data;
     }
 
 }
