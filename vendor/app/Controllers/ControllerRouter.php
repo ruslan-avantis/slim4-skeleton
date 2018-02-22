@@ -111,7 +111,7 @@ class ControllerRouter
 
         $callback = [];
 
-        // Models Directory /vendor/app/models/
+        // Models Directory /vendor/app/Models/
         // AutoRequire\Autoloader - Automatically registers a namespace \App in /vendor/app/
         $model = new \App\Models\ModelApi($this->config, $this->package, $this->logger);
         $callback = $model->$function($request, $response, $args);
