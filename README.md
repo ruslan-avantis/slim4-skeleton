@@ -70,7 +70,7 @@ That's it! Now go build something cool.
         "cpu": "80",
         "memory": "80",
         "vendor": "cache",
-        "adapter": "apishop",
+        "adapter": "pllano",
         "print": 0,
         "clear": 0,
         "filesystem": {
