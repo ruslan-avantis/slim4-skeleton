@@ -35,9 +35,9 @@ class ModelApi
 
 		$responseCode = 200;
 		$callback = [
-            'code' => $responseCode,
-            'title' => $resource,
-            'message' => $id,
+            'responseCode' => $responseCode,
+            'resource' => $resource,
+            'id' => $id,
 			'getParams' => $getParams,
 			'getMethod' => $getMethod
         ];

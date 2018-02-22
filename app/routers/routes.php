@@ -38,6 +38,7 @@ $app->get($route_home, function ($request, $response, $args)
 // $route_api = $config['routes']['api']['route'];
 $route_api = '/api/json[/[{resource:[a-z0-9_-]+}[/{id:[0-9]+}]]]';
 // URI https://example.com/api/json/test-1/2018
+// URI https://example.com/api/json/test-1/2018?param1=12345&param2=67890
 $app->get($route_api, function ($request, $response, $args)
 {
     // Controllers Directory /vendor/app/Controllers/
