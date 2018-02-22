@@ -4,9 +4,8 @@ Use this skeleton application to quickly setup and start working on a new Slim F
 
 This skeleton application was built for [AutoRequire](https://github.com/pllano/auto-require). This makes setting up a new Slim Framework application quick and easy.
 
-## Demo:
-[joomimart.com](https://joomimart.com/)
 ## Demo URI
+- [joomimart.com](https://joomimart.com/)
 - https://joomimart.com/test
 - https://joomimart.com/test/
 - https://joomimart.com/test1/test2/12345
