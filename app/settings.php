@@ -32,10 +32,10 @@ class Settings
 
         $config["dir"]["www"] = __DIR__ .'/..';
         $config["settings"]["json"] = $settings;
-        $config["settings"]["cache"] =  __DIR__ . "/../_cache/";
+        $config["settings"]["cache"] =  __DIR__ . "/../storage/_cache/";
 
         // Папка куда будут писатся логи Monolog
-        $config["settings"]["logger"]["path"] = isset($_ENV['docker']) ? 'php://stdout' : __DIR__ . '/../logs/app.log';
+        $config["settings"]["logger"]["path"] = isset($_ENV['docker']) ? 'php://stdout' : __DIR__ . '/../storage/logs/app.log';
         $config["settings"]["logger"]["name"] = "slim-app";
         $config["settings"]["logger"]["level"] = \Monolog\Logger::DEBUG;
 
