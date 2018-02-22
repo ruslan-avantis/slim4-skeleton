@@ -1,27 +1,11 @@
 # Slim Framework 4 Skeleton Application
 
-Use this skeleton application to quickly setup and start working on a new Slim Framework 4 application. This application uses the latest Slim 3 with the PHP-View template renderer. It also uses the Monolog logger.
+Use this skeleton application to quickly setup and start working on a new Slim Framework 4 application. This application uses the latest Slim 4 with the [Adapter\TemplateEngine](https://github.com/pllano/template-engine) template renderer. It also uses the Monolog logger.
 
-This skeleton application was built for Composer. This makes setting up a new Slim Framework application quick and easy.
+This skeleton application was built for [AutoRequire](https://github.com/pllano/auto-require). This makes setting up a new Slim Framework application quick and easy.
 
 ## Install the Application
 
-Run this command from the directory in which you want to install your new Slim Framework application.
-
-    php composer.phar create-project slim/slim-skeleton [my-app-name]
-
-Replace `[my-app-name]` with the desired directory name for your new application. You'll want to:
-
-* Point your virtual host document root to your new application's `public/` directory.
-* Ensure `logs/` is web writeable.
-
-To run the application in development, you can run these commands 
-
-	cd [my-app-name]
-	php composer.phar start
-
-Run this command in the application directory to run the test suite
-
-	php composer.phar test
+Copy the files to the directory where you want to install the new Slim Framework application. Run the index.php
 
 That's it! Now go build something cool.
