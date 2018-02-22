@@ -11,6 +11,7 @@ This skeleton application was built for [AutoRequire](https://github.com/pllano/
 - https://joomimart.com/test1/test2/12345
 - https://joomimart.com/api/json/test-1
 - https://joomimart.com/api/json/test-1/2018?param1=12345&param2=67890
+- https://joomimart.com/api/json/get?config=1&package=2
  
 ## Additionally has:
 - [AutoRequire](https://github.com/pllano/auto-require) to PSR-0 and PSR-4 standards.
