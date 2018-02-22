@@ -3,7 +3,7 @@
         "front_end": {
             "template_engine": "twig",
             "template_package": "twig.twig",
-            "cache": 1,
+            "cache": 0,
             "themes": {
                 "template": "template_name",
                 "templates": "templates",
@@ -35,7 +35,7 @@
     },
     "cache": {
         "driver": "filesystem",
-        "state": 1,
+        "state": 0,
         "cache_lifetime": "3600",
         "dynamic": 0,
         "cpu": "80",
