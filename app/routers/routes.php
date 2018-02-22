@@ -41,7 +41,7 @@ $route_api = '/api/json[/[{resource:[a-z0-9_-]+}[/{id:[0-9]+}]]]';
 $app->get($route_api, function ($request, $response, $args)
 {
     // Controllers Directory /vendor/app/Controllers/
-	// AutoRequire\Autoloader - Automatically registers a namespace in /vendor/app/
+	// AutoRequire\Autoloader - Automatically registers a namespace \App in /vendor/app/
 
     // $controller = $this->get('config')['vendor']['controllers']['router'];
 	// $route = ucfirst($request->getAttribute('route')) ?? 'Error';
@@ -85,7 +85,7 @@ $app->get($route_content, function ($request, $response, $args)
     // $getParsedBody = $request->getParsedBody();
  
     // Controllers Directory /vendor/app/Controllers/
-	// AutoRequire\Autoloader - Automatically registers a namespace in /vendor/app/
+	// AutoRequire\Autoloader - Automatically registers a namespace \App in /vendor/app/
 
     // $controller = $this->get('config')['vendor']['controllers']['router'];
 

@@ -60,7 +60,7 @@ class ControllerRouter
         $h2 = $request->getAttribute('route') ?? '«Hello, world!»';
 
         // Models Directory /vendor/app/Models/
-        // AutoRequire\Autoloader - Automatically registers a namespace in /vendor/app/
+        // AutoRequire\Autoloader - Automatically registers a namespace \App in /vendor/app/
 
         $lang = 'en';
         // $language = new \App\Models\ModelLanguage();
