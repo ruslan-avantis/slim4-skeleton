@@ -11,7 +11,9 @@
 */
  
 // Routes
-$app->get('/', function ($request, $response, $args)
+// $route_home = $config['routes']['home']['route'];
+$route_home = '/';
+$app->get($route_home, function ($request, $response, $args)
 {
     $view = $this->get('view'); 
  
@@ -27,17 +29,24 @@ $app->get('/', function ($request, $response, $args)
  
     // Render index view
     $render = 'index.phtml';
+ 
     return $response->write($view->render($render, $data));
  
 });
  
 /*
-    /api[/{alias:[a-z0-9_-]+}]
-    /{alias:[a-z0-9_]+}/[/{name:[a-z0-9_-]+}].html
-    /{service:[\w]+}[/{resource:[\w]+}[/{id:[\w]+}]]
-	/{route:[a-z0-9_-]+}[/{resource:[\w]+}[/{id:[\w]+}]]
+$route = $config['routes']['article']['route'];
+or
+$route = '/api[/{alias:[a-z0-9_-]+}]';
+or
+$route = '/{alias:[a-z0-9_]+}/[/{name:[a-z0-9_-]+}].html';
+or
+$route = '/{service:[\w]+}[/{resource:[\w]+}[/{id:[\w]+}]]';
+or
+$route = '/{route:[a-z0-9_-]+}[/{resource:[\w]+}[/{id:[\w]+}]]';
 */
-$app->get('/{route:[a-z0-9_-]+}[/[{resource:[\w]+}[/{id:[0-9]+}]]]', function ($request, $response, $args)
+$route_item = '/{route:[a-z0-9_-]+}[/[{resource:[\w]+}[/{id:[0-9]+}]]]';
+$app->get($route_item, function ($request, $response, $args)
 {
     // $getScheme = $request->getUri()->getScheme();
     // $getParams = $request->getQueryParams();
@@ -49,10 +58,11 @@ $app->get('/{route:[a-z0-9_-]+}[/[{resource:[\w]+}[/{id:[0-9]+}]]]', function ($
  
     // Controllers Directory /vendor/app/Controllers/
 	// AutoRequire\Autoloader - Automatically registers a namespace in /vendor/app/
-	
+
+    // $controller = $this->get('config')['vendor']['controllers']['router'];
+
 	// $route = ucfirst($request->getAttribute('route')) ?? 'Error';
     // $controller = '\App\Controllers\Controller'.$route;
-    // $controller = $this->get('config')['vendor']['controllers']['router'];
  
     $controller = '\App\Controllers\ControllerRouter';
     // $function = 'run';
