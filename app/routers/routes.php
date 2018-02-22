@@ -73,7 +73,7 @@ $route_content = '/{service:[\w]+}[/{resource:[\w]+}[/{id:[\w]+}]]';
 or
 $route_content = '/{route:[a-z0-9_-]+}[/{resource:[\w]+}[/{id:[\w]+}]]';
 */
-$route_content = '/{route:[a-z0-9_-]+}[/[{resource:[\w]+}[/{id:[0-9]+}]]]';
+$route_content = '/{route:[a-z0-9_-]+}[/[{resource:[a-z0-9_-]+}[/{id:[0-9]+}]]]';
 // URI https://example.com/site/test/2018
 $app->get($route_content, function ($request, $response, $args)
 {
