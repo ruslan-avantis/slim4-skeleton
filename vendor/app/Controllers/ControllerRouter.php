@@ -103,7 +103,25 @@ class ControllerRouter
         return $this->view->render($render, $data);
         
     }
-    
+
+    public function runApi(Request $request, Response $response, array $args)
+    {
+		$function = strtolower($request->getMethod());
+
+		$callback = [];
+
+        // Models Directory /vendor/app/models/
+        // AutoRequire\Autoloader - Automatically registers a namespace \App in /vendor/app/
+        $model = new \App\Models\ModelApi($this->config, $this->package, $this->logger);
+        $callback = $model->$function($request, $response, $args);
+ 
+        $callbackCode = $callback['code'] ?? 200;
+		$response->withStatus($callbackCode);
+        $response->withHeader('Content-type', 'application/json');
+        return json_encode($callback, JSON_PRETTY_PRINT);
+
+    }
+
     public function post(Request $request, Response $response, array $args)
     {
         $getParsedBody = $request->getParsedBody();

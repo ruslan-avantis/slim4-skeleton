@@ -1,4 +1,5 @@
 {
+	"update": {},
 	"require": {
 		"app.app": {
 			"namespace": "App",
@@ -257,17 +258,6 @@
 			"name": "FastRoute",
 			"version": "1.2.0",
 			"vendor": "nikic",
-			"state": 1,
-			"system_package": 1
-		},
-		"paragonie.random_compat": {
-			"files": "random.php",
-			"dir": "\/paragonie\/random_compat\/lib",
-			"link": "https:\/\/github.com\/paragonie\/random_compat\/archive\/master.zip",
-			"git": "https:\/\/github.com\/paragonie\/random_compat",
-			"name": "random_compat",
-			"version": "master",
-			"vendor": "paragonie",
 			"state": 1,
 			"system_package": 1
 		},

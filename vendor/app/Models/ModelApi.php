@@ -1,0 +1,47 @@
+<?php /**
+    * This file is part of the {Slim-4}$keleton
+    *
+    * @license http://opensource.org/licenses/MIT
+    * @link https://github.com/pllano/Slim-4-Skeleton
+    * @version 1.0.1
+    * @package pllano.slim4-skeleton
+    *
+    * For the full copyright and license information, please view the LICENSE
+    * file that was distributed with this source code.
+*/
+
+namespace App\Models;
+
+use Psr\Http\Message\{ServerRequestInterface as Request, ResponseInterface as Response};
+
+class ModelApi
+{
+
+    function __construct($config, $package, $logger)
+    {
+        $this->config = $config;
+        $this->package = $package;
+        $this->logger = $logger;
+    }
+	
+    public function get(Request $request, Response $response, array $args)
+    {
+        $getParams = $request->getQueryParams();
+		$getMethod = $request->getMethod();
+		$resource = $request->getAttribute('resource') ?? '';
+		$id = $request->getAttribute('id') ?? '';
+
+		$responseCode = 200;
+		$callback = [
+            'code' => $responseCode,
+            'title' => $resource,
+            'message' => $id,
+			'getParams' => $getParams,
+			'getMethod' => $getMethod
+        ];
+
+		return $data;
+    }
+
+}
+ 

@@ -35,18 +35,16 @@ $app->get($route_home, function ($request, $response, $args)
 });
  
 /*
-$route = $config['routes']['article']['route'];
+$route_content = $config['routes']['api']['route'];
 or
-$route = '/api[/{alias:[a-z0-9_-]+}]';
+$route_content = '/{alias:[a-z0-9_]+}/[/{name:[a-z0-9_-]+}].html';
 or
-$route = '/{alias:[a-z0-9_]+}/[/{name:[a-z0-9_-]+}].html';
+$route_content = '/{service:[\w]+}[/{resource:[\w]+}[/{id:[\w]+}]]';
 or
-$route = '/{service:[\w]+}[/{resource:[\w]+}[/{id:[\w]+}]]';
-or
-$route = '/{route:[a-z0-9_-]+}[/{resource:[\w]+}[/{id:[\w]+}]]';
+$route_content = '/{route:[a-z0-9_-]+}[/{resource:[\w]+}[/{id:[\w]+}]]';
 */
-$route_item = '/{route:[a-z0-9_-]+}[/[{resource:[\w]+}[/{id:[0-9]+}]]]';
-$app->get($route_item, function ($request, $response, $args)
+$route_content = '/{route:[a-z0-9_-]+}[/[{resource:[\w]+}[/{id:[0-9]+}]]]';
+$app->get($route_content, function ($request, $response, $args)
 {
     // $getScheme = $request->getUri()->getScheme();
     // $getParams = $request->getQueryParams();
@@ -65,8 +63,27 @@ $app->get($route_item, function ($request, $response, $args)
     // $controller = '\App\Controllers\Controller'.$route;
  
     $controller = '\App\Controllers\ControllerRouter';
-    // $function = 'run';
+    // $function = 'runApi';
     $function = strtolower($request->getMethod());
+ 
+    $class = new $controller($this->get('config'), $this->get('package'), $this->get('view'), $this->get('logger'));
+    return $response->write($class->$function($request, $response, $args));
+ 
+});
+ 
+// $route_api = $config['routes']['api']['route'];
+$route_api = '/api/v1/json/[/[{resource:[\w]+}[/{id:[0-9]+}]]]';
+$app->get($route_api, function ($request, $response, $args)
+{
+    // Controllers Directory /vendor/app/Controllers/
+	// AutoRequire\Autoloader - Automatically registers a namespace in /vendor/app/
+
+    // $controller = $this->get('config')['vendor']['controllers']['router'];
+	// $route = ucfirst($request->getAttribute('route')) ?? 'Error';
+    // $controller = '\App\Controllers\Controller'.$route;
+ 
+    $controller = '\App\Controllers\ControllerRouter';
+    $function = 'runApi';
  
     $class = new $controller($this->get('config'), $this->get('package'), $this->get('view'), $this->get('logger'));
     return $response->write($class->$function($request, $response, $args));
