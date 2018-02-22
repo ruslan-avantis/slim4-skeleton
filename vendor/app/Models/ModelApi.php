@@ -23,13 +23,15 @@ class ModelApi
         $this->package = $package;
         $this->logger = $logger;
     }
-	
-    public function get(Request $request, Response $response, array $args)
+
+    public function get(Request $request, Response $response, array $args): array
     {
         $getParams = $request->getQueryParams();
 		$getMethod = $request->getMethod();
 		$resource = $request->getAttribute('resource') ?? '';
 		$id = $request->getAttribute('id') ?? '';
+		
+		// ..............
 
 		$responseCode = 200;
 		$callback = [
@@ -40,7 +42,7 @@ class ModelApi
 			'getMethod' => $getMethod
         ];
 
-		return $data;
+		return $callback;
     }
 
 }

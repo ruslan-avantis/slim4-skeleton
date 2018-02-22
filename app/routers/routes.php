@@ -72,7 +72,7 @@ $app->get($route_content, function ($request, $response, $args)
 });
  
 // $route_api = $config['routes']['api']['route'];
-$route_api = '/api/v1/json/[/[{resource:[\w]+}[/{id:[0-9]+}]]]';
+$route_api = '/api[/[{resource:[\w]+}[/{id:[0-9]+}]]]';
 $app->get($route_api, function ($request, $response, $args)
 {
     // Controllers Directory /vendor/app/Controllers/
@@ -84,9 +84,15 @@ $app->get($route_api, function ($request, $response, $args)
  
     $controller = '\App\Controllers\ControllerRouter';
     $function = 'runApi';
- 
+
     $class = new $controller($this->get('config'), $this->get('package'), $this->get('view'), $this->get('logger'));
-    return $response->write($class->$function($request, $response, $args));
- 
+    $callback = $class->$function($request, $response, $args);
+
+	$callbackCode = $callback['code'] ?? 200;
+
+	return $response->withJson($callback, $callbackCode, JSON_PRETTY_PRINT);
+	// return $response->withJson($callback, $callbackCode);
+	// return $response->write($callback)->withStatus($callbackCode)->withHeader('Content-type', 'application/json');
+
 });
  
