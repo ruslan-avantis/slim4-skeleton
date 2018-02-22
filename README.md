@@ -15,7 +15,7 @@ Copy the files to the directory where you want to install the new Slim Framework
 
 That's it! Now go build something cool.
 
-## Configuration
+## Configuration [settings.json](https://github.com/pllano/Slim-4-Skeleton/blob/master/app/settings.json)
 ```json
 {
     "template": {
