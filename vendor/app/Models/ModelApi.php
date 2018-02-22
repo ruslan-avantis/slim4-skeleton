@@ -12,12 +12,19 @@
 
 namespace App\Models;
 
-use Psr\Http\Message\{ServerRequestInterface as Request, ResponseInterface as Response};
+use Psr\Http\Message\{
+    ServerRequestInterface as Request, 
+    ResponseInterface as Response
+};
 
 class ModelApi
 {
 
-    function __construct($config, $package, $logger)
+    private $config = [];
+    private $package = [];
+    protected $logger;
+
+    function __construct($config = [], $package = [], $logger)
     {
         $this->config = $config;
         $this->package = $package;
@@ -31,7 +38,7 @@ class ModelApi
 		$resource = $request->getAttribute('resource') ?? '';
 		$id = $request->getAttribute('id') ?? '';
 
-		// ..............
+		// ....... Your code ....... //
 
 		$responseCode = 200;
 		$callback = [
@@ -39,7 +46,9 @@ class ModelApi
             'resource' => $resource,
             'id' => $id,
 			'getParams' => $getParams,
-			'getMethod' => $getMethod
+			'getMethod' => $getMethod,
+			'config' => $this->config,
+			'package' => $this->package,
         ];
 
 		return $callback;
