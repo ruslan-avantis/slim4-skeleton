@@ -83,25 +83,22 @@ if (file_exists($autoRequire) && file_exists($auto_require)) {
     $app = new \Slim\App($settings);
 
     // Set up dependencies
-    require BASE_PATH . '/../app/dependencies.php';
     // Automatically register dependencies
-    $dependencies = glob(__DIR__ . '/../app/dependencies/*.php');
+    $dependencies = glob(BASE_PATH . '/../app/dependencies/*.php');
     foreach ($dependencies as $dependence) {
         require $dependence;
     }
  
     // Register middleware
-    require BASE_PATH . '/../app/middleware.php';
     // Automatically register middlewares
-    $middlewares = glob(__DIR__ . '/../app/middlewares/*.php');
+    $middlewares = glob(BASE_PATH . '/../app/middlewares/*.php');
     foreach ($middlewares as $middleware) {
         require $middleware;
     }
 
     // Register routes
-    require BASE_PATH . '/../app/routes.php';
     // Automatically register routers
-    $routers = glob(__DIR__ . '/../app/routers/*.php');
+    $routers = glob(BASE_PATH . '/../app/routers/*.php');
     foreach ($routers as $router) {
         require $router;
     }
