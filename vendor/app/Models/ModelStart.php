@@ -34,9 +34,12 @@ class ModelStart
                 "title" => "Slim 4 Skeleton",
                 "description" => "a microframework for PHP",
                 "robots" => "index, follow",
-                "render" => "index.phtml"
+                "render" => "index.phtml",
+                "caching" => $this->config['cache']['driver'],
+				"caching_state" => $this->config['cache']['state'],
+				"cache_lifetime" => $this->config['cache']['cache_lifetime']
         ];
-
+ 
         return $data;
     }
 

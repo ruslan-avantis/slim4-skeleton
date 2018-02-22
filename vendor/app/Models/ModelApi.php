@@ -71,8 +71,11 @@ class ModelApi
                 'id' => $id,
                 'getParams' => $getParams,
                 'getMethod' => $getMethod,
+                "caching" => $this->config['cache']['driver'],
+				"caching_state" => $this->config['cache']['state'],
+				"cache_lifetime" => $this->config['cache']['cache_lifetime'],
                 'config' => $this->config,
-                'package' => $this->package,
+                'package' => $this->package
             ];
             
             $this->logger->info("ModelApi function get - responseCode: {$responseCode} - resource: {$resource}  - id: {$id}");
@@ -86,6 +89,6 @@ class ModelApi
  
         return $callback;
     }
-
+	
 }
  
