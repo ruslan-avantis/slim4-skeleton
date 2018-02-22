@@ -69,8 +69,8 @@ That's it! Now go build something cool.
         "dynamic": 0,
         "cpu": "80",
         "memory": "80",
-        "vendor": "cache",
-        "adapter": "pllano",
+        "vendor": "cache.cache",
+        "adapter": "pllano.cache",
         "print": 0,
         "clear": 0,
         "filesystem": {
