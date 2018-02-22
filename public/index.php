@@ -66,7 +66,7 @@ if (file_exists($autoRequire) && file_exists($auto_require)) {
     $settings['displayErrorDetails'] = true; // set to false in production
     $settings['addContentLengthHeader'] = false; // Allow the web server to send the content-length header
 
-    if (isset($slimSettings)) {
+/*     if (isset($slimSettings)) {
         foreach($slimSettings as $key => $val)
         {
             if((int)$val == 1){
@@ -77,7 +77,7 @@ if (file_exists($autoRequire) && file_exists($auto_require)) {
                 $settings[$key] = $val;
             }
         }
-    }
+    } */
 
     // Connect Slim
     $app = new \Slim\App($settings);

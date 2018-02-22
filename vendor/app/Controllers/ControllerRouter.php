@@ -76,7 +76,7 @@ class ControllerRouter
         // Caching
         $cache = new Cache($this->config);
 
-        if ($cache->run($host.''.$params.'/'.$lang) === null) {
+        if ($cache->run($host.'/'.$path.'/'.$params.'/'.$lang) === null) {
  
             $data = [
                 "h1" => "Slim 4 Skeleton",

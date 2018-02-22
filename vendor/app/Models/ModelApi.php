@@ -50,7 +50,7 @@ class ModelApi
         if ($params_query) {
             $params = '/'.$params_query;
         }
-
+ 
         $callback = [];
         $lang = 'en';
         
@@ -59,7 +59,7 @@ class ModelApi
         // Caching
         $cache = new Cache($this->config);
 
-        if ($cache->run($host.''.$params.'/'.$lang) === null) {
+        if ($cache->run($host.'/'.$path.'/'.$params.'/'.$lang) === null) {
 
             $responseCode = 200;
 

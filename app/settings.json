@@ -34,8 +34,8 @@
         }
     },
     "cache": {
-        "driver": "filesystem",
-        "state": 0,
+        "driver": "json",
+        "state": 1,
         "cache_lifetime": "3600",
         "dynamic": 0,
         "cpu": "80",
@@ -51,7 +51,7 @@
             "path": "cache\/_file_cache"
         },
         "json": {
-            "pool": "\\ApiShop\\Adapter\\Cache\\JsonCache",
+            "pool": "\\Pllano\\Caching\\Cache\\JsonCache",
             "path": "cache\/_json_cache"
         },
         "memcached": {
