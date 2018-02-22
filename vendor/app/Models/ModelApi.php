@@ -2,7 +2,7 @@
     * This file is part of the {Slim-4}$keleton
     *
     * @license http://opensource.org/licenses/MIT
-    * @link https://github.com/pllano/Slim-4-Skeleton
+    * @link https://github.com/pllano/slim4-skeleton
     * @version 1.0.1
     * @package pllano.slim4-skeleton
     *
@@ -30,7 +30,7 @@ class ModelApi
 		$getMethod = $request->getMethod();
 		$resource = $request->getAttribute('resource') ?? '';
 		$id = $request->getAttribute('id') ?? '';
-		
+
 		// ..............
 
 		$responseCode = 200;
