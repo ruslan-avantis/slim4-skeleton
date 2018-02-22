@@ -34,7 +34,7 @@
         }
     },
     "cache": {
-        "driver": "memcached",
+        "driver": "filesystem",
         "state": 1,
         "cache_lifetime": "3600",
         "dynamic": 0,
