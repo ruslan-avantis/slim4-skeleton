@@ -31,7 +31,8 @@
 	</head>
 	<body>
 		{% if h1 %}<h1>{{ h1 }}</h1>{% endif %}
-		{% if h2 %}<h2>resource: <strong>{{ h2 }}</strong></h2>{% endif %}
+		{% if h2 %}<h2><strong>{{ h2 }}</strong></h2>{% endif %}
+		<p>{% if h3 %}resource:  {{ h3 }}{% endif %}{% if id %} + id: {{ id }}{% endif %}</p>
 		{% if description %}<div>{{ description }}</div>{% endif %}
 		<p>Created and maintained by  <a href="https://github.com/pllano">PLLANO</a> Team</p>
 	</body>

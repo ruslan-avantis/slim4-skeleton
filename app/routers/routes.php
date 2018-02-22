@@ -35,8 +35,9 @@ $app->get('/', function ($request, $response, $args)
     /api[/{alias:[a-z0-9_-]+}]
     /{alias:[a-z0-9_]+}/[/{name:[a-z0-9_-]+}].html
     /{service:[\w]+}[/{resource:[\w]+}[/{id:[\w]+}]]
+	/{route:[a-z0-9_-]+}[/{resource:[\w]+}[/{id:[\w]+}]]
 */
-$app->get('/{route:[a-z0-9_-]+}', function ($request, $response, $args)
+$app->get('/{route:[a-z0-9_-]+}[/[{resource:[\w]+}[/{id:[0-9]+}]]]', function ($request, $response, $args)
 {
     // $getScheme = $request->getUri()->getScheme();
     // $getParams = $request->getQueryParams();
@@ -46,7 +47,7 @@ $app->get('/{route:[a-z0-9_-]+}', function ($request, $response, $args)
     // $getMethod = $request->getMethod();
     // $getParsedBody = $request->getParsedBody();
  
-    // Controllers Directory /vendor/app/controllers/
+    // Controllers Directory /vendor/app/Controllers/
 	// AutoRequire\Autoloader - Automatically registers a namespace in /vendor/app/
 	
 	// $route = ucfirst($request->getAttribute('route')) ?? 'Error';
