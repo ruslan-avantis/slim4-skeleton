@@ -5,13 +5,13 @@ Use this skeleton application to quickly setup and start working on a new Slim F
 This skeleton application was built for [AutoRequire](https://github.com/pllano/auto-require). This makes setting up a new Slim Framework application quick and easy.
 
 ## Demo URI
-- [joomimart.com](https://joomimart.com/)
-- https://joomimart.com/test
-- https://joomimart.com/test/test-test_test
-- https://joomimart.com/test1/test2/12345
-- https://joomimart.com/api/json/test-1
-- https://joomimart.com/api/json/test-1/2018?param1=12345&param2=67890
-- https://joomimart.com/api/json/get?config=1&package=2
+- [slim4-skeleton.pllano.com](https://slim4-skeleton.pllano.com/)
+- https://slim4-skeleton.pllano.com//test
+- https://slim4-skeleton.pllano.com/test/test-test_test
+- https://slim4-skeleton.pllano.com/test1/test2/12345
+- https://slim4-skeleton.pllano.com/api/json/test-1
+- https://slim4-skeleton.pllano.com/api/json/test-1/2018?param1=12345&param2=67890
+- https://slim4-skeleton.pllano.com/api/json/get?config=1&package=2
  
 ## Additionally has:
 - [AutoRequire](https://github.com/pllano/auto-require) to PSR-0 and PSR-4 standards.
