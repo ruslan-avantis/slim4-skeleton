@@ -10,11 +10,7 @@
     * file that was distributed with this source code.
 */
  
-//declare(strict_types = 1);
-
-ini_set('error_reporting', E_ALL);
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
+declare(strict_types = 1);
  
 if (PHP_SAPI == 'cli-server') {
     // To help the built-in PHP dev server, check if the request was actually for
@@ -25,19 +21,17 @@ if (PHP_SAPI == 'cli-server') {
         return false;
     }
 }
- 
+
 session_start();
  
 define("BASE_PATH", dirname(__FILE__));
  
 $vendor_dir = '';
 // Looking for the path to the vendor folder
-if (file_exists(BASE_PATH . '/../vendor')) {
-    $vendor_dir = BASE_PATH . '/../vendor';
-} elseif (BASE_PATH . '/../../vendor') {
-    $vendor_dir = BASE_PATH . '/../../vendor';
+if (file_exists(BASE_PATH . '/vendor')) {
+    $vendor_dir = BASE_PATH . '/vendor';
 }
- 
+
 // Specify the path to the file AutoRequire
 $autoRequire = $vendor_dir.'/AutoRequire.php';
 // Specify the path to the file auto_require.json
@@ -52,8 +46,8 @@ if (file_exists($autoRequire) && file_exists($auto_require)) {
     // Start AutoRequire\Autoloader
     $require->run($vendor_dir, $auto_require);
 
-    // Instantiate the app
-    require BASE_PATH . '/../app/settings.php';
+    // Instantiate the core app
+    require BASE_PATH . '/core/settings.php';
     $config = \App\Settings::get();
 
     // We get the list and configuration of packages
@@ -62,11 +56,11 @@ if (file_exists($autoRequire) && file_exists($auto_require)) {
  
     // Default Settings
     $settings = [];
-    $settings['debug'] = false;
+    $settings['debug'] = true;
     $settings['displayErrorDetails'] = true; // set to false in production
     $settings['addContentLengthHeader'] = false; // Allow the web server to send the content-length header
 
-/*     if (isset($slimSettings)) {
+    if (isset($slimSettings)) {
         foreach($slimSettings as $key => $val)
         {
             if((int)$val == 1){
@@ -77,37 +71,21 @@ if (file_exists($autoRequire) && file_exists($auto_require)) {
                 $settings[$key] = $val;
             }
         }
-    } */
+    }
 
     // Connect Slim
     $app = new \Slim\App($settings);
 
     // Set up dependencies
-    // Automatically register dependencies
-    $dependencies = glob(BASE_PATH . '/../app/dependencies/*.php');
-    foreach ($dependencies as $dependence) {
-        require $dependence;
-    }
+    require BASE_PATH . '/core/dependencies.php';
  
     // Register middleware
-    // Automatically register middlewares
-    $middlewares = glob(BASE_PATH . '/../app/middlewares/*.php');
-    foreach ($middlewares as $middleware) {
-        require $middleware;
-    }
+	require BASE_PATH . '/core/middleware.php';
 
     // Register routes
-    // Automatically register routers
-    $routers = glob(BASE_PATH . '/../app/routers/*.php');
-    foreach ($routers as $router) {
-        require $router;
-    }
+	require BASE_PATH . '/core/routes.php';
 
     $app->run();
 
-} else {
-    ini_set('error_reporting', E_ALL);
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
 }
  
