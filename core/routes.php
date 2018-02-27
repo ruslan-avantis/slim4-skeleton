@@ -29,7 +29,7 @@ $app->get($route_home, function ($request, $response, $args)
     ];
  
     // Render index view
-    $render = 'index.phtml';
+    $render = 'index.twig';
  
     return $response->write($view->render($render, $data));
  

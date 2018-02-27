@@ -84,7 +84,7 @@ class ControllerRouter
                 "title" => "Slim 4 Skeleton",
                 "description" => "a microframework for PHP",
                 "robots" => "index, follow",
-                "render" => "index.phtml",
+                "render" => "index.twig",
                 "caching" => $this->config['cache']['driver'],
 				"caching_state" => $this->config['cache']['state'],
 				"cache_lifetime" => $this->config['cache']['cache_lifetime']
@@ -100,7 +100,7 @@ class ControllerRouter
         }
 
         // Render view
-        $render = $data['render'] ?? 'index.phtml';
+        $render = $data['render'] ?? 'index.twig';
         
         $view = $this->view->render($render, $data);
 
