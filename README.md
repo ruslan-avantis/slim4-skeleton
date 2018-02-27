@@ -6,7 +6,7 @@ This skeleton application was built for [AutoRequire](https://github.com/pllano/
 
 ## Demo URI
 - [slim4-skeleton.pllano.com](https://slim4-skeleton.pllano.com/)
-- https://slim4-skeleton.pllano.com//test
+- https://slim4-skeleton.pllano.com/test
 - https://slim4-skeleton.pllano.com/test/test-test_test
 - https://slim4-skeleton.pllano.com/test1/test2/12345
 - https://slim4-skeleton.pllano.com/api/json/test-1
