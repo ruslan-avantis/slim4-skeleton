@@ -17,8 +17,8 @@ This skeleton application was built for [AutoRequire](https://github.com/pllano/
 - [AutoRequire](https://github.com/pllano/auto-require) to PSR-0 and PSR-4 standards.
 - Multi [TemplateEngine](https://github.com/pllano/template-engine): [`Twig`](https://github.com/twigphp/Twig) [`PhpRenderer`](https://github.com/slimphp/PHP-View) [`Smarty`](https://github.com/smarty-php/smarty) [`Dwoo`](https://github.com/dwoo-project/dwoo) [`Fenom`](https://github.com/fenom-template/fenom)  [`Mustache`](https://github.com/bobthecow/mustache.php) [`Blade`](https://github.com/PhiloNL/Laravel-Blade)
 - Caching through [Cache Adapter](https://github.com/pllano/cache): `Memcached`, `Memcache`, `Redis`, `Predis`, `Filesystem`, `JsonCache`
-- [Controllers](https://github.com/pllano/slim4-skeleton/tree/master/vendor/core/Controllers)
-- [Models](https://github.com/pllano/slim4-skeleton/tree/master/vendor/core/Models)
+- [Controllers](https://github.com/pllano/slim4-skeleton/tree/master/vendor/app/Controllers)
+- [Models](https://github.com/pllano/slim4-skeleton/tree/master/vendor/app/Models)
  
 ## Install the Application
 
