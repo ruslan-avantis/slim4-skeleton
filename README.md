@@ -26,7 +26,7 @@ Copy the files to the directory where you want to install the new Slim Framework
 
 That's it! Now go build something cool.
 
-## Configuration [settings.json](https://github.com/pllano/slim4-skeleton/blob/master/app/settings.json)
+## Configuration [settings.json](https://github.com/pllano/slim4-skeleton/blob/master/core/settings.json)
 ```json
 {
     "template": {
@@ -35,7 +35,7 @@ That's it! Now go build something cool.
             "template_package": "twig.twig",
             "cache": 0,
             "themes": {
-                "template": "template_name",
+                "template": "default",
                 "templates": "templates",
                 "dir_name": "\/..\/"
             }
@@ -108,4 +108,3 @@ That's it! Now go build something cool.
 }
 
 ```
-
