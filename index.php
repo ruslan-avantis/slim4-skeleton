@@ -30,6 +30,8 @@ $vendor_dir = '';
 // Looking for the path to the vendor folder
 if (file_exists(BASE_PATH . '/vendor')) {
     $vendor_dir = BASE_PATH . '/vendor';
+} elseif (BASE_PATH . '/../vendor') {
+    $vendor_dir = BASE_PATH . '/../vendor';
 }
 
 // Specify the path to the file AutoRequire
