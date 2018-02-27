@@ -35,7 +35,7 @@ That's it! Now go build something cool.
             "template_package": "twig.twig",
             "cache": 0,
             "themes": {
-                "template": "template_name",
+                "template": "default",
                 "templates": "templates",
                 "dir_name": "\/..\/"
             }
