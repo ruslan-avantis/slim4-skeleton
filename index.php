@@ -9,9 +9,9 @@
     * For the full copyright and license information, please view the LICENSE
     * file that was distributed with this source code.
 */
- 
+
 declare(strict_types = 1);
- 
+
 if (PHP_SAPI == 'cli-server') {
     // To help the built-in PHP dev server, check if the request was actually for
     // something which should probably be served as a static file
@@ -23,9 +23,9 @@ if (PHP_SAPI == 'cli-server') {
 }
 
 session_start();
- 
+
 define("BASE_PATH", dirname(__FILE__));
- 
+
 $vendor_dir = '';
 // Looking for the path to the vendor folder
 if (file_exists(BASE_PATH . '/vendor')) {
@@ -38,7 +38,7 @@ if (file_exists(BASE_PATH . '/vendor')) {
 $autoRequire = $vendor_dir.'/AutoRequire.php';
 // Specify the path to the file auto_require.json
 $auto_require = $vendor_dir.'/auto_require.json';
- 
+
 if (file_exists($autoRequire) && file_exists($auto_require)) {
 
     // Connect \Pllano\AutoRequire\Autoloader
@@ -55,7 +55,7 @@ if (file_exists($autoRequire) && file_exists($auto_require)) {
     // We get the list and configuration of packages
     $package = json_decode(file_get_contents($auto_require), true);
     $slimSettings = $package['require']['slim.slim']['settings'];
- 
+
     // Default Settings
     $settings = [];
     $settings['debug'] = true;
@@ -80,7 +80,7 @@ if (file_exists($autoRequire) && file_exists($auto_require)) {
 
     // Set up dependencies
     require BASE_PATH . '/core/dependencies.php';
- 
+
     // Register middleware
 	require BASE_PATH . '/core/middleware.php';
 
