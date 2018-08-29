@@ -22,35 +22,35 @@
             "state": 1,
             "system_package": 1
         },
-        "slim.slim": {
-            "namespace": "Slim",
-            "dir": "\/slim\/Slim\/Slim",
-            "link": "https:\/\/github.com\/slimphp\/Slim\/archive\/4.x.zip",
-            "git": "https:\/\/github.com\/slimphp\/Slim",
-            "name": "Slim",
-            "version": "4.x",
-            "vendor": "slim",
-            "state": 1,
-            "system_package": 1,
-            "settings": {
-                "debug": 0,
-                "displayErrorDetails": 0,
-                "addContentLengthHeader": 0,
-                "determineRouteBeforeAppMiddleware": 1
-            }
-        },
-        "slim.slim-http": {
-            "namespace": "Slim\\Http",
-            "dir": "\/slim\/Slim-Http\/src",
-            "link": "https://github.com/slimphp/Slim-Http/archive/master.zip",
-            "git": "https://github.com/slimphp/Slim-Http",
-            "name": "Slim-Http",
-            "version": "master",
-            "vendor": "slim",
-            "state": 1,
-            "system_package": 1,
-            "settings": {}
-        },
+		"slim.slim": {
+			"namespace": "Slim",
+			"dir": "\/slim\/Slim\/Slim",
+			"link": "https:\/\/github.com\/slimphp\/Slim\/archive\/4.x.zip",
+			"git": "https:\/\/github.com\/slimphp\/Slim",
+			"name": "Slim",
+			"version": "4.x",
+			"vendor": "slim",
+			"state": 1,
+			"system_package": 1,
+			"settings": {
+				"debug": 0,
+				"displayErrorDetails": 0,
+				"addContentLengthHeader": 0,
+				"determineRouteBeforeAppMiddleware": 1
+			}
+		},
+		"slim.slim-http": {
+			"namespace": "Slim\\Http",
+			"dir": "\/slim\/Slim-Http\/src",
+			"link": "https://github.com/slimphp/Slim-Http/archive/master.zip",
+			"git": "https://github.com/slimphp/Slim-Http",
+			"name": "Slim-Http",
+			"version": "master",
+			"vendor": "slim",
+			"state": 1,
+			"system_package": 1,
+			"settings": {}
+		},
         "faapz.slim-pdo": {
             "namespace": "Slim\\PDO",
             "dir": "\/faapz\/Slim-PDO\/src\/PDO",
@@ -63,53 +63,87 @@
             "system_package": 0,
             "settings": {}
         },
-        "pllano.template-engine": {
-            "namespace": "Pllano\\Adapter",
-            "dir": "\/pllano\/template-engine\/src",
-            "link": "https:\/\/github.com\/pllano\/template-engine\/archive\/master.zip",
-            "git": "https:\/\/github.com\/pllano\/template-engine",
-            "name": "template-engine",
-            "version": "master",
-            "vendor": "pllano",
-            "state": 1,
-            "system_package": 1,
-            "settings": {
-                "state": 1,
-                "package": 1
-            }
-        },
-        "pllano.cache": {
-            "namespace": "Pllano\\Caching",
-            "dir": "\/pllano\/cache\/src",
-            "link": "https:\/\/github.com\/pllano\/cache\/archive\/master.zip",
-            "git": "https:\/\/github.com\/pllano\/cache",
-            "name": "cache",
-            "version": "master",
-            "vendor": "pllano",
-            "state": 1,
-            "system_package": 1,
-            "settings": {
-                "state": 1,
-                "package": 1
-            }
-        },
-        "twig.twig": {
-            "namespace": "Twig",
-            "dir": "\/twig\/Twig\/lib\/Twig",
-            "link": "https:\/\/github.com\/twigphp\/Twig\/archive\/v2.4.4.zip",
-            "git": "https:\/\/github.com\/twigphp\/Twig",
-            "name": "Twig",
-            "version": "2.4.4",
-            "vendor": "twig",
-            "autoloading": "psr-0",
-            "replace_name": "Twig",
-            "state": 1,
-            "system_package": 1,
-            "settings": {
-                "strict_variables": 0,
-                "cache_dir": "\/..\/cache\/_twig_cache"
-            }
-        },
+		"pllano.template-engine": {
+			"namespace": "Pllano\\Adapters\\Template",
+			"dir": "\/pllano\/template-engine\/src",
+			"link": "https:\/\/github.com\/pllano\/template-engine\/archive\/master.zip",
+			"git": "https:\/\/github.com\/pllano\/template-engine",
+			"name": "template-engine",
+			"version": "master",
+			"vendor": "pllano",
+			"state": 1,
+			"system_package": 1,
+			"settings": {
+				"state": 1,
+				"package": 1
+			}
+		},
+		"pllano.cache": {
+			"namespace": "Pllano\\Caching",
+			"dir": "\/pllano\/cache\/src",
+			"link": "https:\/\/github.com\/pllano\/cache\/archive\/master.zip",
+			"git": "https:\/\/github.com\/pllano\/cache",
+			"name": "cache",
+			"version": "master",
+			"vendor": "pllano",
+			"state": 1,
+			"system_package": 1,
+			"settings": {
+				"state": 1,
+				"package": 1
+			}
+		},
+		"twig.twig": {
+			"namespace": "Twig",
+			"dir": "\/twig\/Twig\/lib\/Twig",
+			"link": "https:\/\/github.com\/twigphp\/Twig\/archive\/v2.4.4.zip",
+			"git": "https:\/\/github.com\/twigphp\/Twig",
+			"name": "Twig",
+			"version": "2.4.4",
+			"vendor": "twig",
+			"autoloading": "psr-0",
+			"replace_name": "Twig",
+			"state": 1,
+			"system_package": 1,
+			"settings": {
+				"strict_variables": 0,
+				"cache_dir": "\/..\/cache\/_twig_cache"
+			}
+		},
+		"smarty.smarty": {
+			"namespace": "Smarty",
+			"files": "bootstrap.php",
+			"dir": "\/smarty\/smarty\/libs",
+			"link": "https:\/\/github.com\/smarty-php\/smarty\/archive\/v3.1.31.zip",
+			"git": "https:\/\/github.com\/smarty-php\/smarty",
+			"name": "smarty",
+			"version": "3.1.31",
+			"vendor": "smarty",
+			"state": 1,
+			"system_package": 0,
+			"settings": {
+				"strict_variables": 0,
+				"cache_dir": "\/..\/cache\/_smarty_cache"
+			}
+		},
+		"fenom.fenom": {
+			"namespace": "Fenom",
+			"dir": "\/fenom\/fenom\/src\/Fenom",
+			"files": "\/..\/Fenom.php",
+			"link": "https:\/\/github.com\/fenom-template\/fenom\/archive\/2.11.5.zip",
+			"git": "https:\/\/github.com\/fenom-template\/fenom",
+			"name": "fenom",
+			"version": "2.11.5",
+			"vendor": "fenom",
+			"state": 1,
+			"system_package": 0,
+			"settings": {
+				"cache_dir": "\/..\/cache\/_fenom_cache",
+				"disable_cache": 0,
+				"force_compile": 0,
+				"compile_check": 0
+			}
+		},
         "monolog.monolog": {
             "namespace": "Monolog",
             "dir": "\/monolog\/monolog\/src\/Monolog",

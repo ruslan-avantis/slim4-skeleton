@@ -32,7 +32,7 @@ class ModelApi
         $this->logger = $logger;
     }
 
-    public function get(Request $request, Response $response, array $args): array
+    public function get(Request $request, Response $response, array $args)
     {
         $getParams = $request->getQueryParams();
         $getMethod = $request->getMethod();

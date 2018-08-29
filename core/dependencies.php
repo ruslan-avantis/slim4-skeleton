@@ -12,7 +12,7 @@
  
 use Pimple\Container;
 use Pimple\Psr11\Container as PsrContainer;
-use Pllano\Adapter\TemplateEngine as Template;
+use Pllano\Adapters\Template\TemplateEngine as Template;
  
 $container = new Container();
  
@@ -35,10 +35,11 @@ $container['logger'] = function ($c) {
 $container['view'] = function ($c) {
     // template name
     $template = $c['config']['template']['front_end']['themes']['template'];
-    // Register \Pllano\Adapter\TemplateEngine
+    // Register Pllano\Adapters\Template\TemplateEngine
     return new Template($c['config'], $c['package']['require'], $template);
 };
  
+$core = new PsrContainer($container);
 // We register containers in Slim
-$app->setContainer(new PsrContainer($container));
+$app->setContainer($core);
  

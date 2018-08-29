@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1">
+        <link rel="shortcut icon" href="/favicon.png">
+        {if $title!}<title>{$title}</title>{/if}
+        {if $keywords!}<meta name="keywords" content="{$keywords}">{/if}
+        {if $description!}<meta name="description" content="{$description}">{/if}
+        {if $robots!}<meta name="robots" content="{$robots}">{/if}
+        <link href='//fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+        <style>
+            body {
+            margin: 50px 0 0 0;
+            padding: 0;
+            width: 100%;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            text-align: center;
+            color: #aaa;
+            font-size: 18px;
+            }
+            h1 {
+            color: #719e40;
+            letter-spacing: -3px;
+            font-family: 'Lato', sans-serif;
+            font-size: 100px;
+            font-weight: 200;
+            margin-bottom: 0;
+            }
+        </style>
+    </head>
+    <body>
+        {if $h1}<h1>{$h1}</h1>{/if}
+        {if $h2}<h2><strong>{$h2}</strong></h2>{/if}
+		<p>{if $caching}cache:  {$caching}{/if} 
+		{if $caching_state} - state: {$caching_state}{/if} 
+		{if $cache_lifetime}cache_lifetime: {$cache_lifetime}{/if}</p>
+        <p>{if $h3}resource:  {$h3}{/if}{if $id} + id: {$id}{/if}</p>
+        {if $description}<div>{$description}</div>{/if}
+        <p>Created and maintained by  <a href="https://github.com/pllano/slim4-skeleton">PLLANO</a> Team</p>
+    </body>
+</html>

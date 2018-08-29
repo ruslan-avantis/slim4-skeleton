@@ -1,8 +1,8 @@
 {
     "template": {
         "front_end": {
-            "template_engine": "twig",
-            "template_package": "twig.twig",
+            "template_engine": "fenom",
+            "template_package": "fenom.fenom",
             "cache": 0,
             "themes": {
                 "template": "default",
@@ -35,7 +35,7 @@
     },
     "cache": {
         "driver": "filesystem",
-        "state": 1,
+        "state": 0,
         "cache_lifetime": "120",
         "dynamic": 0,
         "cpu": "80",

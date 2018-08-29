@@ -84,7 +84,7 @@ class ControllerRouter
                 "title" => "Slim 4 Skeleton",
                 "description" => "a microframework for PHP",
                 "robots" => "index, follow",
-                "render" => "index.twig",
+                "render" => "index.html",
                 "caching" => $this->config['cache']['driver'],
 				"caching_state" => $this->config['cache']['state'],
 				"cache_lifetime" => $this->config['cache']['cache_lifetime']
@@ -100,15 +100,15 @@ class ControllerRouter
         }
 
         // Render view
-        $render = $data['render'] ?? 'index.twig';
-        
+        $render = $data['render'] ?? 'index.html';
+
         $view = $this->view->render($render, $data);
 
         return $view;
 
     }
 
-    public function runApi(Request $request, Response $response, array $args): array
+    public function runApi(Request $request, Response $response, array $args)
     {
         $function = strtolower($request->getMethod());
 
@@ -118,9 +118,12 @@ class ControllerRouter
         // AutoRequire\Autoloader - Automatically registers a namespace \App in /vendor/app/
         $model = new \App\Models\ModelApi($this->config, $this->package, $this->logger);
         $callback = $model->$function($request, $response, $args);
-
+		
+		$responseCode = 200;
+		echo json_encode($callback, JSON_PRETTY_PRINT);
+        return $response->withStatus($responseCode)->withHeader("Content-Type","application/json");
         // return json_encode($callback, JSON_PRETTY_PRINT);
-        return $callback;
+        // return $callback;
 
     }
 

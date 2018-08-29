@@ -10,7 +10,7 @@
     * file that was distributed with this source code.
 */
 
-declare(strict_types = 1);
+//declare(strict_types = 1);
 
 if (PHP_SAPI == 'cli-server') {
     // To help the built-in PHP dev server, check if the request was actually for
@@ -30,9 +30,9 @@ $vendor_dir = '';
 // Looking for the path to the vendor folder
 if (file_exists(BASE_PATH . '/vendor')) {
     $vendor_dir = BASE_PATH . '/vendor';
-} elseif (BASE_PATH . '/../vendor') {
+} /* elseif (BASE_PATH . '/../vendor') {
     $vendor_dir = BASE_PATH . '/../vendor';
-}
+} */
 
 // Specify the path to the file AutoRequire
 $autoRequire = $vendor_dir.'/AutoRequire.php';
@@ -60,9 +60,9 @@ if (file_exists($autoRequire) && file_exists($auto_require)) {
     $settings = [];
     $settings['debug'] = true;
     $settings['displayErrorDetails'] = true; // set to false in production
-    $settings['addContentLengthHeader'] = false; // Allow the web server to send the content-length header
+    $settings['addContentLengthHeader'] = true; // Allow the web server to send the content-length header
 
-    if (isset($slimSettings)) {
+/*     if (isset($slimSettings)) {
         foreach($slimSettings as $key => $val)
         {
             if((int)$val == 1){
@@ -73,7 +73,7 @@ if (file_exists($autoRequire) && file_exists($auto_require)) {
                 $settings[$key] = $val;
             }
         }
-    }
+    } */
 
     // Connect Slim
     $app = new \Slim\App($settings);
@@ -86,7 +86,7 @@ if (file_exists($autoRequire) && file_exists($auto_require)) {
 
     // Register routes
 	require BASE_PATH . '/core/routes.php';
-
+ 
     $app->run();
 
 }

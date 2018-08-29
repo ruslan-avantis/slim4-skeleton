@@ -42,12 +42,6 @@ class Settings
         // Папка с шаблонами
         $config['template']['front_end']['themes']['dir'] = __DIR__ .''.$json['template']['front_end']['themes']['dir_name'];
 
-        // Определяем протокол
-        $config["server"]["scheme"] = 'http';
-        if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
-            $config["server"]["scheme"] = 'https';
-        }
-
         return $config;
 
     }
