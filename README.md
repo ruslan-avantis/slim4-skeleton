@@ -1,4 +1,4 @@
-# Slim Framework 4 Skeleton Application & PHP 7.2.2
+# Slim Framework 4 Skeleton Application & PHP 7.2.3
 
 Use this skeleton application to quickly setup and start working on a new Slim Framework 4 application. This application uses the latest Slim 4 with the [Adapter\TemplateEngine](https://github.com/pllano/template-engine) template renderer. It also uses the Monolog logger.
 
