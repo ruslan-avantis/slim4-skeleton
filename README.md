@@ -9,9 +9,9 @@ This skeleton application was built for [AutoRequire](https://github.com/pllano/
 - https://slim4-skeleton.pllano.com/test
 - https://slim4-skeleton.pllano.com/test/test-test_test
 - https://slim4-skeleton.pllano.com/test1/test2/12345
-- https://slim4-skeleton.pllano.com/api/json/test-1
-- https://slim4-skeleton.pllano.com/api/json/test-1/2018?param1=12345&param2=67890
-- https://slim4-skeleton.pllano.com/api/json/get?config=1&package=2
+- https://slim4-skeleton.pllano.com/api/json
+- https://slim4-skeleton.pllano.com/api/json/2018?param1=12345&param2=67890
+- https://slim4-skeleton.pllano.com/api/json/1?config=1&package=2
  
 ## Additionally has:
 - [AutoRequire](https://github.com/pllano/auto-require) to PSR-0 and PSR-4 standards.
